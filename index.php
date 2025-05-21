@@ -1,10 +1,11 @@
-
+<?php include 'links.php'; ?>
 <html>
-<a href="sendmoney.php">
-  <button>Send Money</button>
-</a>
+  <h1 style="text-transform: uppercase;">Transaction website</h1>
+  <a href="sendmoney.php">
+    <button>Send Money</button>
+  </a>
 
-<a href="checkbalance.php">
-  <button>Check Balance</button>
+  <br><br><br>
+  <a href="checkbalance.php">
+    <button>Check Balance</button>
 </a>
-</html>

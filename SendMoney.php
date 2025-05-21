@@ -1,43 +1,5 @@
+<?php include 'links.php'; 
 
-<?php
-$message = "";
-$balance = "";
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Transaction Website</title>
-    <style>
-        body { font-family: Arial; padding: 20px; background: #f4f4f4; }
-        form { background: #fff; padding: 20px; margin-bottom: 20px; border-radius: 5px; box-shadow: 0 0 10px #ccc; }
-        h2 { color: #333; }
-    </style>
-</head>
-<body>
-
-<h1>Transaction Website</h1>
-
-<form method="post">
-    <h2>Send Money</h2>
-    <input type="hidden" name="action" value="send_money">
-    <label>Sender Phone Number: <input type="text" name="sender_phone" required></label><br><br>
-    <label>Sender Password: <input type="password" name="sender_password" required></label><br><br>
-    <label>Amount (TK): <input type="number" name="amount" required></label><br><br>
-    <label>Receiver Phone Number: <input type="text" name="receiver_phone" required></label><br><br>
-    <input type="submit" value="Send Money">
-</form>
-
-<?php if ($message): ?>
-    <div style="color: <?= strpos($message, 'Successful') !== false ? 'green' : 'red' ?>; font-weight: bold;">
-        <?= $message ?>
-    </div>
-<?php endif; ?>
-
-</body>
-</html>
-
-<?php
 if (isset($_REQUEST['action'])) {
     if ($_REQUEST['action'] === 'send_money') {
         $sender = $_REQUEST['sender_phone'];
@@ -63,3 +25,43 @@ if (isset($_REQUEST['action'])) {
     }
 }
 ?>
+
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+
+<form method="post">
+  <h2>Send Money</h2>
+    <input type="hidden" name="action" value="send_money">
+  <table>
+    <tr>
+      <td><label>Sender Phone Number: </label></td>
+      <td><input type="text" name="sender_phone" required></td>
+    </tr>
+    <tr>
+      <td><label>Sender Password: </label></td>
+      <td><input type="password" name="sender_password" required></td>
+    </tr>
+    <tr>
+      <td><label>Amount (TK): </label></td>
+      <td><input type="number" name="amount" required></td>
+    </tr>
+    <tr>
+      <td><label>Receiver Phone Number: </label></td>
+      <td><input type="text" name="receiver_phone" required></td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: center;"><input type="submit" value="Send Money"></td>
+    </tr>
+  </table>
+</form>
+
+<?php if ($message): ?>
+    <div style="color: <?= strpos($message, 'Successful') !== false ? 'green' : 'red' ?>;">
+        <?= $message ?>
+    </div>
+<?php endif; ?>
+
+</body>
+</html>
